@@ -41,11 +41,18 @@ VALUES
 ('Gameboy', 'Pokemon blue anyone?', 'https://images.unsplash.com/photo-1631896928992-90e5a2cc7a4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80', 1599, 'Electronics');
 
 CREATE TABLE baskets (
+    basket_id SERIAL PRIMARY KEY,
     item_id INT REFERENCES items(item_id),
     user_id INT REFERENCES users(user_id)
 );
 
+INSERT INTO baskets
+(item_id, user_id)
+VALUES
+(1, 1);
+
 CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
     item_id INT REFERENCES items(item_id),
     user_id INT REFERENCES users(user_id)
 );
