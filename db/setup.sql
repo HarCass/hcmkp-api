@@ -57,6 +57,11 @@ CREATE TABLE orders (
     user_id INT REFERENCES users(user_id)
 );
 
+INSERT INTO orders
+(item_id, user_id)
+VALUES
+(1, 1);
+
 WITH item_json (doc) as (
     VALUES
     ('[

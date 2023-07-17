@@ -1,4 +1,4 @@
-package hcmkp.api.basket;
+package hcmkp.api.order;
 
 import hcmkp.api.item.Item;
 import hcmkp.api.user.User;
@@ -7,18 +7,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name="baskets")
-public class Basket {
+@Table(name="orders")
+public class Order {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="basket_id")
+    @Column(name="order_id")
     private Long id;
-    public Long getbasketId() {
+    public Long getOrderId() {
         return id;
     }
 
@@ -35,5 +35,4 @@ public class Basket {
     public User getUser() {
         return user;
     }
-
 }
