@@ -3,6 +3,7 @@ package hcmkp.api.item;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,5 +31,11 @@ public class ItemController {
     public ResponseEntity<Item> postItem(@RequestBody Item newItem) {
         itemRepo.save(newItem);
         return new ResponseEntity<Item>(newItem, null, 201);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteItem(@RequestBody Long id) {
+        itemRepo.deleteById(id);
+        return new ResponseEntity<Void>(null, null, 204);
     }
 }
